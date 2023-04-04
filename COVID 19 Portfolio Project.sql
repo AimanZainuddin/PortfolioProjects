@@ -31,6 +31,7 @@ FROM PortfolioProject..CovidDeaths
 WHERE location like '%malaysia%'
 ORDER BY 1,2
 
+
 -- Looking at Countries with Highest Infection Rate compared to Population
 
 SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS PercentPopulationInfected
@@ -39,6 +40,7 @@ FROM PortfolioProject..CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY location, population
 ORDER BY PercentPopulationInfected DESC
+
 
 -- Showing Countries with Highest Death Count per Population
 
@@ -49,9 +51,6 @@ WHERE continent IS NOT NULL
 GROUP BY location
 ORDER BY TotalDeathCount DESC
 
--- BREAK THINGS DOWN BY CONTINENT
-
-
 
 -- Showing continents with the highest death count per population
 
@@ -61,6 +60,7 @@ FROM PortfolioProject..CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY continent
 ORDER BY TotalDeathCount DESC
+
 
 -- GLOBAL NUMBERS
 
@@ -83,6 +83,7 @@ JOIN PortfolioProject..CovidVaccinations vac
 	AND dea.date = vac.date
 WHERE dea.continent IS NOT NULL
 ORDER BY 2,3
+
 
 -- USE CTE
 
