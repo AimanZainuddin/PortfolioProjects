@@ -1,4 +1,8 @@
--- SQL DATA EXPLORATION
+/*
+
+SQL DATA EXPLORATION
+
+*/
 
 SELECT *
 FROM PortfolioProject..CovidDeaths
