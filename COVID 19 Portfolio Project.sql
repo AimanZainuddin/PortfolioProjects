@@ -1,3 +1,5 @@
+-- SQL DATA EXPLORATION
+
 SELECT *
 FROM PortfolioProject..CovidDeaths
 WHERE continent IS NOT NULL
