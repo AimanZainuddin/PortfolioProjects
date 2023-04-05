@@ -18,7 +18,7 @@ ORDER BY 1,2
 
 SELECT location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 AS DeathPercentage
 FROM PortfolioProject..CovidDeaths
-WHERE location like '%malaysia%'
+WHERE location LIKE '%malaysia%'
 AND continent IS NOT NULL
 ORDER BY 1,2
 
@@ -28,7 +28,7 @@ ORDER BY 1,2
 
 SELECT location, date, population, total_cases, (total_cases/population)*100 AS PercentPopulationInfected
 FROM PortfolioProject..CovidDeaths
-WHERE location like '%malaysia%'
+WHERE location LIKE '%malaysia%'
 ORDER BY 1,2
 
 
@@ -36,7 +36,7 @@ ORDER BY 1,2
 
 SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS PercentPopulationInfected
 FROM PortfolioProject..CovidDeaths
---WHERE location like '%malaysia%'
+--WHERE location LIKE '%malaysia%'
 WHERE continent IS NOT NULL
 GROUP BY location, population
 ORDER BY PercentPopulationInfected DESC
@@ -46,7 +46,7 @@ ORDER BY PercentPopulationInfected DESC
 
 SELECT location, MAX(CAST(Total_deaths AS INT)) AS TotalDeathCount
 FROM PortfolioProject..CovidDeaths
---WHERE location like '%malaysia%'
+--WHERE location LIKE '%malaysia%'
 WHERE continent IS NOT NULL
 GROUP BY location
 ORDER BY TotalDeathCount DESC
@@ -56,7 +56,7 @@ ORDER BY TotalDeathCount DESC
 
 SELECT continent, MAX(CAST(Total_deaths AS INT)) AS TotalDeathCount
 FROM PortfolioProject..CovidDeaths
---WHERE location like '%malaysia%'
+--WHERE location LIKE '%malaysia%'
 WHERE continent IS NOT NULL
 GROUP BY continent
 ORDER BY TotalDeathCount DESC
@@ -66,7 +66,7 @@ ORDER BY TotalDeathCount DESC
 
 SELECT SUM(new_cases) AS total_cases, SUM(CAST(new_deaths AS INT)) AS total_deaths, SUM(CAST(new_deaths AS INT))/SUM(new_cases)*100 AS DeathPercentage
 FROM PortfolioProject..CovidDeaths
---WHERE location like '%malaysia%'
+--WHERE location LIKE '%malaysia%'
 WHERE continent IS NOT NULL
 --GROUP BY date
 ORDER BY 1,2
